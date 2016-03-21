@@ -1,5 +1,5 @@
-#ifndef __HELLO_WORLD_H
-#define __HELLO_WORLD_H
+#ifndef __HELLO_H
+#define __HELLO_H
 
 void hello_world();
 
