@@ -2,6 +2,7 @@ name: py
 dependencies:
     - python=3
     - ipython
+    - cython
     - pip
     - pip:
         - ipdb
