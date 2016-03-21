@@ -1,4 +1,7 @@
 name: py
 dependencies:
     - python=3
+    - ipython
     - pip
+    - pip:
+        - ipdb
