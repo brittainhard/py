@@ -1,2 +1,2 @@
 clean:
-	rm -rf build *.so *.c
+	rm -rf build *.so
