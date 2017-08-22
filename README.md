@@ -1,2 +1,2 @@
-# c
-Various C Programs and Exercises
+# py
+Various Python Programs and Exercises
