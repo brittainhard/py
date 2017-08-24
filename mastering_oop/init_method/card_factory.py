@@ -2,11 +2,13 @@
 inherit from a higher level class. If you don't need to inherit, dont use a
 class."""
 
+from functools import partial
+
 from suits import *
 from cards import *
 
 
-__all__ = ["card", "card_better_elif", "card_mapping"]
+__all__ = ["card", "card_better_elif", "card_mapping", "factory_functions"]
 
 
 def card(rank, suit):
@@ -45,3 +47,16 @@ def card_mapping(rank, suit):
     card"""
     class_ = {1: AceCard, 11: FaceCard, 12: FaceCard, 13: FaceCard}.get(rank, NumberCard)
     return class_(rank, suit)
+
+
+def card_functools_mapping(rank, suit):
+    part_class = {
+        1: partial(AceCard, 'A'),
+        11: partial(FaceCard, 'J'),
+        12: partial(FaceCard, 'Q'),
+        13: partial(FaceCard, 'K')
+    }.get(rank, partial(NumberCard, str(rank)))
+    return part_class(suit)
+
+
+factory_functions = [card, card_better_elif, card_mapping, card_functools_mapping]
