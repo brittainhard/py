@@ -6,6 +6,11 @@ from init import *
 
 
 def test_card_factory():
+    """The book provides for a number of different functions for getting card
+    bappings. This test makes sure they all work. The same basic formula is
+    this: they take a rank and suit, and use the .get method in a dictionary to
+    give back the cards. For all of these functions, the default return from
+    .get is a NumberCard instance."""
     for x in factory_functions:
         number_card = x(3, Spade)
         ace_card = x(1, Heart)
@@ -17,6 +22,12 @@ def test_card_factory():
         assert type(jack) == FaceCard
         assert type(queen) == FaceCard
         assert type(king) == FaceCard
+
+
+def test_card_factory_class():
+    factory = CardFactory()
+    deck = factory.get_deck()
+    assert len(deck) == 52
 
 
 def test_superclass_type():
