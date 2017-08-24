@@ -15,18 +15,69 @@ def card(rank, suit):
         name = {11: "J", 12: "Q", 13: "K"}[rank]
         return FaceCard(name, suit)
     else:
+        """The else clause is there to make explicit what inputs this function
+        will handle"""
         raise Exception("Rank out of range.")
 
 
-deck = [card(rank, suit) for rank in range(1, 11) for suit in (Club, Diamond,
-    Heart, Spade)]
-print(deck)
+def card_better_elif(rank, suit):
+    if rank == 1:
+        return AceCard('A', suit)
+    elif 2 <= rank < 11:
+        return NumberCard(str(rank), suit)
+    elif rank == 11:
+        return FaceCard("J", suit)
+    elif rank == 12:
+        return FaceCard("Q", suit)
+    elif rank == 13:
+        return FaceCard("K", suit)
+    else:
+        """The else clause is there to make explicit what inputs this function
+        will handle"""
+        raise Exception("Rank out of range.")
+
+
+def card_mapping(rank, suit):
+    """Get the desired rank. If the rank isnt there by default, return a nubmer
+    card"""
+    class_ = {1: AceCard, 11: FaceCard, 12: FaceCard, 13: FaceCard}.get(rank, NumberCard)
+    return class_(rank, suit)
 
 
 def test_card_factory():
     number_card = card(3, Spade)
     ace_card = card(1, Heart)
-    face_card = card(11, Club)
+    jack = card(11, Club)
+    queen = card(12, Diamond)
+    king = card(13, Spade)
     assert type(number_card) == NumberCard
     assert type(ace_card) == AceCard
-    assert type(face_card) == FaceCard
+    assert type(jack) == FaceCard
+    assert type(queen) == FaceCard
+    assert type(king) == FaceCard
+
+
+def test_card_better_elif():
+    number_card = card_better_elif(3, Spade)
+    ace_card = card_better_elif(1, Heart)
+    jack = card_better_elif(11, Club)
+    queen = card_better_elif(12, Diamond)
+    king = card_better_elif(13, Spade)
+    assert type(number_card) == NumberCard
+    assert type(ace_card) == AceCard
+    assert type(jack) == FaceCard
+    assert type(queen) == FaceCard
+    assert type(king) == FaceCard
+
+
+def test_card_mapping():
+    number_card = card_mapping(3, Spade)
+    ace_card = card_mapping(1, Heart)
+    jack = card_mapping(11, Club)
+    queen = card_mapping(12, Diamond)
+    king = card_mapping(13, Spade)
+    assert type(number_card) == NumberCard
+    assert type(ace_card) == AceCard
+    assert type(jack) == FaceCard
+    assert type(queen) == FaceCard
+    assert type(king) == FaceCard
