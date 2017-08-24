@@ -1,3 +1,6 @@
+__all__ = ["X", "Rectangle"]
+
+
 class X:
     pass
 
@@ -12,17 +15,3 @@ class Rectangle:
 
     def area(self):
         return self.length * self.width
-
-
-def test_superclass_type():
-    assert str(X.__class__) == "<class 'type'>"
-
-
-def test_superclass_base():
-    assert str(X.__class__.__base__) == "<class 'object'>"
-
-
-def test_assert_no_init_method():
-    r = Rectangle()
-    r.length, r.width = 13, 8
-    assert r.area() == 104

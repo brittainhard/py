@@ -6,6 +6,9 @@ from suits import *
 from cards import *
 
 
+__all__ = ["card", "card_better_elif", "card_mapping"]
+
+
 def card(rank, suit):
     if rank == 1:
         return AceCard('A', suit)
@@ -42,42 +45,3 @@ def card_mapping(rank, suit):
     card"""
     class_ = {1: AceCard, 11: FaceCard, 12: FaceCard, 13: FaceCard}.get(rank, NumberCard)
     return class_(rank, suit)
-
-
-def test_card_factory():
-    number_card = card(3, Spade)
-    ace_card = card(1, Heart)
-    jack = card(11, Club)
-    queen = card(12, Diamond)
-    king = card(13, Spade)
-    assert type(number_card) == NumberCard
-    assert type(ace_card) == AceCard
-    assert type(jack) == FaceCard
-    assert type(queen) == FaceCard
-    assert type(king) == FaceCard
-
-
-def test_card_better_elif():
-    number_card = card_better_elif(3, Spade)
-    ace_card = card_better_elif(1, Heart)
-    jack = card_better_elif(11, Club)
-    queen = card_better_elif(12, Diamond)
-    king = card_better_elif(13, Spade)
-    assert type(number_card) == NumberCard
-    assert type(ace_card) == AceCard
-    assert type(jack) == FaceCard
-    assert type(queen) == FaceCard
-    assert type(king) == FaceCard
-
-
-def test_card_mapping():
-    number_card = card_mapping(3, Spade)
-    ace_card = card_mapping(1, Heart)
-    jack = card_mapping(11, Club)
-    queen = card_mapping(12, Diamond)
-    king = card_mapping(13, Spade)
-    assert type(number_card) == NumberCard
-    assert type(ace_card) == AceCard
-    assert type(jack) == FaceCard
-    assert type(queen) == FaceCard
-    assert type(king) == FaceCard
