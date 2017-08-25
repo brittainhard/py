@@ -4,12 +4,8 @@ class."""
 
 from functools import partial
 
-from suits import *
-from cards import *
-
-
-__all__ = ["card", "card_better_elif", "card_mapping", "factory_functions",
-    "CardFactory"]
+from .suits import *
+from .cards import *
 
 
 def card(rank, suit):

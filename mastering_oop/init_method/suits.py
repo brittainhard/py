@@ -1,7 +1,3 @@
-__all__ = ["Club", "Diamond", "Heart", "Spade", "HEART_SYMBOL", "DIAMOND_SYMBOL",
-    "CLUB_SYMBOL", "SPADE_SYMBOL"]
-
-
 HEART_SYMBOL = u'\u2661'
 DIAMOND_SYMBOL = u'\u2662'
 CLUB_SYMBOL = u'\u2663'

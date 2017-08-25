@@ -2,9 +2,6 @@
 Card class. We need to save this to be used later."""
 
 
-__all__ = ["NumberCard", "AceCard", "FaceCard"]
-
-
 class Card:
 
     def __init__(self, rank, suit):
