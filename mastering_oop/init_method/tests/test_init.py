@@ -1,4 +1,4 @@
-from init_method import cards, card_factory, suits, init, alt_cards
+from init_method import cards, card_factory, suits, init, alt_cards, deck
 
 
 def test_card_factory():
@@ -51,3 +51,11 @@ def test_alt_cards():
     assert type(jack) == alt_cards.FaceCard
     assert type(queen) == alt_cards.FaceCard
     assert type(king) == alt_cards.FaceCard
+
+
+def test_deck_one():
+    for x in card_factory.factory_functions:
+        current_deck = deck.Deck(x)
+        assert len(current_deck) == 52
+        current_deck.pop()
+        assert len(current_deck) == 51
