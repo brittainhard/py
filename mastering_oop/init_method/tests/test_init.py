@@ -1,4 +1,4 @@
-from init_method import cards, card_factory, suits, init, alt_cards, deck
+from init_method import cards, card_factory, suits, init, alt_cards, deck, hands
 
 
 def test_card_factory():
@@ -54,8 +54,29 @@ def test_alt_cards():
 
 
 def test_deck_one():
-    for x in card_factory.factory_functions:
-        current_deck = deck.Deck(x)
-        assert len(current_deck) == 52
-        current_deck.pop()
-        assert len(current_deck) == 51
+    current_deck = deck.Deck()
+    assert len(current_deck) == 52
+    current_deck.pop()
+    assert len(current_deck) == 51
+
+
+def test_list_deck():
+    current_deck = deck.ListDeck()
+    assert len(current_deck) == 52
+    current_deck.pop()
+    assert len(current_deck) == 51
+
+def test_dealer_deck():
+    current_deck = deck.DealerDeck(4)
+    deck_length = len(current_deck)
+    current_deck.pop()
+    assert deck_length - 1 == len(current_deck)
+
+
+def test_hands():
+    current_deck = deck.ListDeck()
+    hand1 = hands.BadHand(current_deck.pop())
+    hand1.cards.append(current_deck.pop())
+    assert len(hand1) == 1
+    hand2 = hands.GoodHand(current_deck.pop(), current_deck.pop(), current_deck.pop())
+    assert len(hand2) == 2

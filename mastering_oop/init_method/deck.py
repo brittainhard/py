@@ -1,13 +1,12 @@
 import random
-
-from . import cards, card_factory
+from . import cards
+from .card_factory import card_better_elif
 from .suits import Club, Diamond, Heart, Spade
 
 class Deck:
 
-    def __init__(self, factory_func):
-        self.factory_func = factory_func
-        self._cards = [factory_func(r + 1, s) for r in range(13) for s in (Club,
+    def __init__(self):
+        self._cards = [card_better_elif(r + 1, s) for r in range(13) for s in (Club,
             Diamond, Heart, Spade)]
         random.shuffle(self._cards)
 
@@ -20,4 +19,29 @@ class Deck:
         return len(self._cards)
 
 
-deck_constructors = [Deck]
+class ListDeck(list):
+    """Actually inhereting from a list here, but from above we can also make
+    that object act like a list. In this way you can modify the underlying
+    things if you wanted to."""
+
+    def __init__(self):
+        super().__init__(card_better_elif(r + 1, s) for r in range(13) for s in (Club,
+            Diamond, Heart, Spade))
+        random.shuffle(self)
+
+
+class DealerDeck(list):
+    """This is for dealing blackjack from a shoe."""
+
+    def __init__(self, decks=1):
+        super().__init__()
+        for i in range(decks):
+            self.extend(card_better_elif(r + 1, s) for r in range(13) for s in (Club,
+                Diamond, Heart, Spade))
+        random.shuffle(self)
+        burn = random.randint(1, 52)
+        for i in range(burn):
+            self.pop()
+
+
+deck_constructors = [Deck, ListDeck, DealerDeck]
