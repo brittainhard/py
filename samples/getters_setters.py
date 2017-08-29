@@ -13,6 +13,6 @@ class Circle(object):
 
 
 def test_circle():
-    a = Circle(2)
-    assert a.radius == 2.0
-    assert a.diameter == 4.0
+    circ = Circle(2)
+    assert circ.radius == 2.0
+    assert circ.diameter == 4.0
