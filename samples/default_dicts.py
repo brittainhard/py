@@ -29,13 +29,14 @@ class Car:
         self.kind = kind
 
 
-x = [("chevy", ("silverado", (("color", "red"), ("kind", "truck"))))]
-cars = defaultdict(lambda: defaultdict(lambda: Car("white", "coupe")))
-for k, v in x:
-    cars[k][v[0]] = Car(v[1][0][1], v[1][1][1])
-# print(cars["chevy"]["silverado"].kind)
+def test_default_dict():
+    x = [("chevy", ("silverado", (("color", "red"), ("kind", "truck"))))]
+    cars = defaultdict(lambda: defaultdict(lambda: Car("white", "coupe")))
+    for k, v in x:
+        cars[k][v[0]] = Car(v[1][0][1], v[1][1][1])
+    assert cars["chevy"]["silverado"].kind == "truck"
 
-beatles = defaultdict(list)
-beatles["john"] = 1
-beatles["paul"] = [1, 2, 3, 4]
-print(beatles)
+    beatles = defaultdict(list)
+    beatles["john"] = 1
+    beatles["paul"] = [1, 2, 3, 4]
+    assert beatles

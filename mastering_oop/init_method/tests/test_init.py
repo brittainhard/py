@@ -1,4 +1,4 @@
-from init_method import cards, card_factory, suits, init, alt_cards, deck, hands
+from .. import cards, card_factory, suits, init, alt_cards, deck, hands
 
 
 def test_card_factory():
@@ -80,3 +80,16 @@ def test_hands():
     assert len(hand1) == 1
     hand2 = hands.GoodHand(current_deck.pop(), current_deck.pop(), current_deck.pop())
     assert len(hand2) == 2
+
+
+def test_clone_hand():
+    current_deck = deck.ListDeck()
+    hand = hands.CloneHand(current_deck.pop(), current_deck.pop())
+    memento = hands.CloneHand(hand)
+    assert memento.cards == hand.cards
+
+
+def test_static_hand():
+    current_deck = deck.ListDeck()
+    hand = hands.StaticHand(current_deck.pop(), current_deck.pop(), current_deck.pop())
+    split_1, split_2 = hands.StaticHand.split(hand, current_deck.pop(), current_deck.pop())

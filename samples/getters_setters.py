@@ -1,4 +1,7 @@
 class Circle(object):
+    """You don't actually set the radius here, but you have to have an init
+    function that can handle radius. It might actually get set, but I'm not
+    sure."""
 
     def __init__(self, radius):
         self.radius = radius
