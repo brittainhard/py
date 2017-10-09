@@ -6,3 +6,7 @@ name, shares, price, date = data
 
 name2, shares2, price2, (year, mon, day) = data
 
+assert year == 2012
+assert day == 21
+assert mon == 12
+
