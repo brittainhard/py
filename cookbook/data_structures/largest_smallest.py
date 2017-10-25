@@ -1,3 +1,6 @@
+"""
+Make this data structure in C.
+"""
 import heapq
 
 nums = [1, 8, 2, 23, 7, -4, 18, 23, 42, 37, 2]
@@ -13,3 +16,8 @@ portfolio = [
 	{"name": "YHOO", "shares": 45, "price": 16.35},
 	{"name": "ACME", "shares": 75, "price": 115.6}
 ]
+
+cheap = heapq.nsmallest(3, portfolio, key=lambda s: s["price"])
+expensive = heapq.nlargest(3, portfolio, key=lambda s: s["price"])
+print(cheap)
+print(expensive)
