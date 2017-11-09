@@ -12,6 +12,9 @@ class PriorityQueue:
     What we do here is save the priority, the index, and the item itself. When
     comparing tuples, python compares the first values first before the next
     values, and stops once it can determine it. This works the same with lists.
+
+    You can probably do this in C, but you'd have to check the type first, and
+    you couldn't really compare stirngs.
     """
 
     def __init__(self):
