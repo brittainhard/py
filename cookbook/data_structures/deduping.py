@@ -1,7 +1,7 @@
 """
 Removing duplicates from a sequence while maintaining order.
 
-This only works with items that you can hash.
+The advantage of doing it this way is that it preserves order.
 """
 def dedupe(items):
     seen = set()
@@ -19,4 +19,3 @@ def dedupe_hash(items, key=None):
         if val not in seen:
             yield item
             seen.add(val)
-
