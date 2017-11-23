@@ -10,4 +10,3 @@ end of the string.
 """
 b = slice(10, None)
 print(potato[b])
-
