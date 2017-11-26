@@ -10,3 +10,8 @@ Subscriber = namedtuple("Subscriber", ["addr", "joined"])
 sub = Subscriber("jonesy@example.com", "2012-10-19")
 print(sub)
 print(sub.addr)
+
+people = []
+Person = namedtuple("Person", ["name", "age"])
+people.append(Person(*["Brittain", "31"]))
+print(people)
