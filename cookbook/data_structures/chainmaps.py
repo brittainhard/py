@@ -31,3 +31,12 @@ print(values.parents["x"])
 print(values.parents)
 print(values.parents.parents["x"])
 print(values.parents.parents)
+
+
+"""
+If you use dictionary update to combine multiple dictionaries, it creates a new
+copy. With chainmap you can keep copies of all the dictionaries.
+"""
+d = dict(b)
+d.update(a)
+print(d)

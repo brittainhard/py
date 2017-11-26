@@ -7,6 +7,7 @@ rows = [
 
 from operator import itemgetter
 
+
 """
 Weird shit.
 
@@ -17,7 +18,6 @@ gets the attribute faster I guess?
 Using timeit tells me that it is many times faster. You can do a number of
 things like this.
 """
-
 rows_by_fname = sorted(rows, key=itemgetter("fname"))
 rows_by_uid = sorted(rows, key=itemgetter("uid"))
 print(rows_by_fname)
@@ -26,3 +26,12 @@ print(rows_by_uid)
 
 """Alternative using get"""
 potato = sorted(rows, key=lambda k: k.get("uid"))
+
+
+"""
+You can use more than one attribute if you use itemgetter. It will sort one key
+after the next.
+"""
+print("\n")
+rows_by_lfname = sorted(rows, key=itemgetter("lname", "fname"))
+print(rows_by_lfname)
