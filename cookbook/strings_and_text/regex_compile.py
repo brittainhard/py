@@ -32,9 +32,13 @@ d = pattern.match(text3)
 """Interesting thing happening here with `e`. It is automatically looking
 through the groups looking for matches, and it returns all the groups."""
 e = pattern2.search(text3)
+# This returns all the items as a list of tuples.
 f = pattern2.findall(text3)
 """This was to test if it can handle newlines. It can."""
 g = pattern2.findall(text4)
+
+# Returns an iterator. Just like a generator.
+h = pattern2.finditer(text3)
 
 month, day, year = e.groups()
 
