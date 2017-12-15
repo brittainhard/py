@@ -7,6 +7,8 @@ class Date:
     attributes and add or remove attributes.
 
     Slots is just an optimization tool.
+
+    Also, slots remove the underling dict setting of objects.
     """
 
     __slots__ = ["year", "month", "day"]
@@ -15,3 +17,15 @@ class Date:
         self.year = year
         self.month = month
         self.day = day
+
+
+class Date2:
+
+    def __init__(self, year, month, day):
+        self.year = year
+        self.month = month
+        self.day = day
+    
+
+a = Date(2017, 12, 15)
+b = Date(2017, 12, 15)
