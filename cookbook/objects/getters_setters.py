@@ -7,7 +7,9 @@ A better name, 'Customizing access to an attribute'.
 Make sure you do scratch stuff for these things. No sense in not playing around
 with scratch programs.
 
-Just keep your head down.
+Just keep your head down. Down.
+
+I break mirrors with my face in the united states.
 """
 
 class Person:
