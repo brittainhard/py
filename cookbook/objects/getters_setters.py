@@ -15,10 +15,15 @@ I break mirrors with my face in the united states.
 class Person:
     """
     In this example, you are validating the type of the value.
+
+    In reality, you should only change an attribute to a property if you need to
+    do some extra processing on the input.
+
+    This can be useful for calculating things like area for a circle.
     """
 
     def __init__(self, first_name):
-        self._first_name = first_name
+        self.first_name = first_name
 
     # Getter function
     @property
@@ -38,3 +43,5 @@ class Person:
         print("Deleting")
         raise AttributeError("Can't delete an attribute")
 
+
+a = Person("Kelly")
