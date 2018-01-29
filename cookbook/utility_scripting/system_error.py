@@ -1,5 +1,6 @@
 import sys
 
 
-sys.stderr.write("It failed!\n")
-raise SystemExit(1)
+# Optional
+# sys.stderr.write("It failed!\n")
+raise SystemExit("Hey")
