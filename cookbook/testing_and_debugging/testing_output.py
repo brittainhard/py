@@ -15,6 +15,7 @@ class TestURLPrint(TestCase):
         host = 'www'
         domain = 'example.com'
         expected_url = '{}://{}.{}\n'.format(protocol, host, domain)
+        expected_url = 
         print(expected_url)
 
         with patch('sys.stdout', new=StringIO()) as fake_out:
