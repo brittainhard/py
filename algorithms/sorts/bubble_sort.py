@@ -1,7 +1,6 @@
 import random
 
 
-
 def bubble_sort(items):
     for y in range(len(items)):
         for x in range(0, len(items)):
@@ -14,4 +13,6 @@ def bubble_sort(items):
                 items[x + 1] = a
     return items
 
-a = [x for x in range(5000)]
+
+a = [x for x in range(100)]
+print(a)

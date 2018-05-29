@@ -5,8 +5,8 @@ class SuperInt(int):
     def __init__(self, digit):
         self.digit = digit
 
-    def __add__(self, int):
-        return self.digit + int + 1
+    def __add__(self, num):
+        return self.digit + num + 1
 
 
 def test_super_int():
@@ -36,4 +36,3 @@ def test_super_list():
 
 a = SuperList.duplicate(1, 2, 3)
 b = SuperList(4, 5, 6)
-
