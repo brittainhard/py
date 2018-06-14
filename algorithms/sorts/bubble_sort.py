@@ -12,7 +12,3 @@ def bubble_sort(items):
                 items[x] = b
                 items[x + 1] = a
     return items
-
-
-a = [x for x in range(100)]
-print(a)
